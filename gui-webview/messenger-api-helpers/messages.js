@@ -77,6 +77,28 @@ const changeGiftButton = {
 };
 
 /**
+ * Button for displaying a postback button that triggers the entreprise demarche flow
+ */
+const demarcheEntrepriseButton = {
+  type: 'postback',
+  title: 'Démarche Entreprise',
+  payload: JSON.stringify({
+    type: 'DEMARCHE_CORP',
+  }),
+};
+
+/**
+ * Button for displaying a postback button that triggers the personnel demarche flow
+ */
+const demarchePersonnelleButton = {
+  type: 'postback',
+  title: 'Démarche Personnelle',
+  payload: JSON.stringify({
+    type: 'DEMARCHE_PERSO',
+  }),
+};
+
+/**
  * Message that informs the user of the promotion and prompts
  * them to set their preferences.
  */
@@ -85,8 +107,11 @@ const helloRewardMessage = {
     type: 'template',
     payload: {
       template_type: 'button',
-      text: 'Thanks for joining our reward program! We’d love to send you a free birthday gift.',
-      buttons: [setPreferencesButton],
+      text: 'Bienvenue chez YesWeCoach ! Etes-vous dans une démarche personnelle ou bien porté par une entreprise ?',
+      buttons: [
+          demarchePersonnelleButton,
+          demarcheEntrepriseButton
+      ],
     },
   },
 };
